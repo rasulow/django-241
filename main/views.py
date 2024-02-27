@@ -2,5 +2,8 @@ from django.shortcuts import render
 from . import models
 
 def home(request):
-    ady = models.Category.objects.all()
-    return render(request, 'home.html')
+    products = models.Product.objects.all().order_by('-id')
+    context = {
+        'products': products
+    }
+    return render(request, 'home.html', context)
