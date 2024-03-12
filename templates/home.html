@@ -4,7 +4,7 @@
 
 {% block content %}
     <div style="width: 100%;display: flex; justify-content: end;align-items: center;">
-        <a href="#" class="create-button">Create product</a>
+        <a href="{% url 'create' %}" class="create-button">Create product</a>
     </div>
     <div>
         <table>
@@ -22,11 +22,15 @@
                     <td>{{ product.description }}</td>
                     <td>{{ product.price }}</td>
                     <td style="display: flex;">
-                        <i class="material-icons" style="font-size:20px;color:red; cursor: pointer">delete</i>
+                        <a href="{% url 'delete' product.id %}">
+                            <i class="material-icons" style="font-size:20px;color:red; cursor: pointer" onclick="return confirm('Cyndanam?')">delete</i>
+                        </a>
                         <i class="material-icons" style="font-size:20px;color:green; cursor: pointer">update</i>
                     </td>
                 </tr>
             {% endfor %}
         </table>
     </div>
+
+
 {% endblock %}

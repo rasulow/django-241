@@ -3,5 +3,21 @@
 {% block title %}Create{% endblock %}
 
 {% block content %}
-Create
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label for="name" class="label-style">Name</label>
+        <div class="input-div">
+            <input type="text" class="input-style" id="name" name="name">
+        </div>
+        <label for="description" class="label-style">Description</label>
+        <div class="input-div">
+            <input type="text" class="input-style" id="description" name="description">
+        </div>
+        <label for="price" class="label-style">Price</label>
+        <div class="input-div">
+            <input type="number" class="input-style" id="price", name="price">
+        </div>
+        <button>Add</button>
+    </form>
+
 {% endblock %}
